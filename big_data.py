@@ -98,3 +98,15 @@ def analise_de_queimadas_por_bioma(all_data):
     plt.savefig('queimada_por_bioma.pdf', format='pdf')
 
 analise_de_queimadas_por_bioma(all_data)
+
+
+def mapear_area_de_risco(all_data):
+    # Mapeamento de Áreas de Risco
+    fig = px.scatter_mapbox(all_data, lat='latitude', lon='longitude', color='risco_fogo', size='frp',
+                            color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=3,
+                            mapbox_style="open-street-map")
+    fig.update_layout(title='Mapa de Áreas de Risco de Incêndios')
+    fig.show()
+
+mapear_area_de_risco(all_data)
+
