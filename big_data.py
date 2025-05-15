@@ -64,3 +64,16 @@ def variacao_percentual(df):
     plt.savefig('Variacao_percentual_por_ano.pdf', format='pdf')
 
 variacao_percentual(all_data)
+
+def ocorrencias_por_mes(df):
+    df['mes'] = df['data_pas'].dt.month
+    ocorrencias = df.groupby('mes').size()
+    plt.figure(figsize=(12, 6))
+    ocorrencias.plot(kind='line', marker='o', color='coral')
+    plt.title('Ocorrências de Incêndios por Mês')
+    plt.xlabel('Mês')
+    plt.ylabel('Número de Ocorrências')
+    plt.xticks(range(1, 13))
+    plt.savefig('Ocorrencia_por_mes.pdf', format='pdf')
+
+ocorrencias_por_mes(all_data)
