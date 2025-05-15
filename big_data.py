@@ -47,3 +47,20 @@ def ocorrencias_por_ano(all_data):
     plt.savefig('grafico_ocorrencias_por_ano.pdf', format='pdf')
 
 ocorrencias_por_ano(all_data)
+
+def variacao_percentual(df):
+    ocorrencias = df.groupby(df['data_pas'].dt.year).size().reset_index(name='ocorrencias')
+    ocorrencias.rename(columns={'data_pas': 'ano'}, inplace=True)
+    ocorrencias['variacao_percentual'] = ocorrencias['ocorrencias'].pct_change() * 100
+    ocorrencias['variacao_percentual'] = ocorrencias['variacao_percentual'].fillna(0)
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(ocorrencias['ano'], ocorrencias['variacao_percentual'], marker='o')
+    plt.xticks(ocorrencias['ano'])
+    plt.title('Variação Percentual das Queimadas por Ano')
+    plt.xlabel('Ano')
+    plt.ylabel('Variação Percentual (%)')
+    plt.grid(True)
+    plt.savefig('Variacao_percentual_por_ano.pdf', format='pdf')
+
+variacao_percentual(all_data)
