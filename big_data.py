@@ -77,3 +77,24 @@ def ocorrencias_por_mes(df):
     plt.savefig('Ocorrencia_por_mes.pdf', format='pdf')
 
 ocorrencias_por_mes(all_data)
+
+
+def mapa_densidade(df):
+    fig = px.density_mapbox(df, lat='latitude', lon='longitude', z='frp', radius=10,
+                            center=dict(lat=-14.235004, lon=-51.92528), zoom=3,
+                            mapbox_style="open-street-map")
+    fig.update_layout(title='Densidade de Queimadas no Brasil')
+    fig.show()
+
+mapa_densidade(all_data)
+
+def analise_de_queimadas_por_bioma(all_data):
+    plt.figure(figsize=(12, 6))
+    sns.countplot(data=all_data, x='bioma', order=all_data['bioma'].value_counts().index, color='forestgreen')
+    plt.title('Número de Ocorrências de Incêndios por Bioma')
+    plt.xlabel('Bioma')
+    plt.ylabel('Número de Ocorrências')
+    plt.xticks(rotation=45)
+    plt.savefig('queimada_por_bioma.pdf', format='pdf')
+
+analise_de_queimadas_por_bioma(all_data)
