@@ -32,3 +32,18 @@ def carregar_e_tratar_dados(anos):
 
 # Variável que contém os dados tratados
 all_data = carregar_e_tratar_dados(anos)
+
+
+def ocorrencias_por_ano(all_data):
+    # Análise Temporal: Variação Anual
+    ocorrencias_por_ano = all_data.groupby(all_data['data_pas'].dt.year).size()
+    plt.figure(figsize=(12, 6))
+    ocorrencias_por_ano.plot(kind='bar', color='skyblue')
+    plt.title('Ocorrências de Incêndios por Ano (2018-2024)')
+    plt.xlabel('Ano')
+    plt.ylabel('Número de Ocorrências')
+
+    #Salvar resultado em um pdf
+    plt.savefig('grafico_ocorrencias_por_ano.pdf', format='pdf')
+
+ocorrencias_por_ano(all_data)

@@ -1,0 +1,24 @@
+# Ignorar arquivos e pastas temporárias
+__pycache__/
+*.pyc
+
+# Ignorar arquivos de ambiente virtual (se existir)
+venv/
+env/
+
+# Ignorar arquivos zipados e de dados grandes
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.csv
+
+# Ignorar arquivos do VS Code
+.vscode/
+
+# Ignorar arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs ou arquivos temporários
+*.log
