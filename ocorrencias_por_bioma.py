@@ -48,7 +48,7 @@ def analise_de_queimadas_por_bioma(anos):
     # Gráfico
     plt.figure(figsize=(12, 6))
     sns.barplot(x=bioma_df.index, y=bioma_df['ocorrencias'], color='forestgreen')
-    plt.title('Número de Ocorrências de Incêndios por Bioma (2018–2024)')
+    plt.title('Número de Ocorrências de Incêndios por Bioma (2021–2024)')
     plt.xlabel('Bioma')
     plt.ylabel('Número de Ocorrências')
     plt.xticks(rotation=45)
