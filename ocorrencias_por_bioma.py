@@ -14,7 +14,6 @@ arquivos = [
     ("15Nik8kNDKH-hpAHk26UROH9vxTGJXhBD", "focos_br_todos-sats_2023.csv"),
     ("1U38lVunPdtpcaQ8IVFQlN7LWLhdSPETx", "focos_br_todos-sats_2022.csv"),
     ("1CUwf5L3W7L2TtQwX55bzLfkhbYJq7f00", "focos_br_todos-sats_2021.csv"),
-
 ]
 
 # Loop para verificar e baixar apenas os arquivos que ainda não existem
@@ -52,6 +51,8 @@ def analise_de_queimadas_por_bioma(anos):
     plt.xlabel('Bioma')
     plt.ylabel('Número de Ocorrências')
     plt.xticks(rotation=45)
+    for i, (bioma, qtd) in enumerate(contagem_bioma.items()):
+        plt.text(i, qtd + 100, str(qtd), ha='center', va='bottom')
     plt.tight_layout()
     plt.savefig('Ocorrencias_por_bioma.pdf', format='pdf')
     plt.close()
