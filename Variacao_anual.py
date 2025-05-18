@@ -46,7 +46,7 @@ def contar_ocorrencias_por_ano(anos):
 def gerar_grafico_barras(ocorrencias_dict):
     plt.figure(figsize=(12, 6))
     plt.bar(ocorrencias_dict.keys(), ocorrencias_dict.values(), color='skyblue')
-    plt.title('Ocorrências de Incêndios por Ano (2018-2024)')
+    plt.title('Ocorrências de Incêndios por Ano (2021-2024)')
     plt.xlabel('Ano')
     plt.ylabel('Número de Ocorrências')
     plt.xticks(list(ocorrencias_dict.keys()))
