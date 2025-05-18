@@ -47,7 +47,7 @@ def ocorrencias_por_mes(anos):
     plt.figure(figsize=(12, 6))
     plt.plot(list(ocorrencias_mensais.keys()), list(ocorrencias_mensais.values()), 
              marker='o', color='coral')
-    plt.title('Ocorrências de Incêndios por Mês (Soma de Todos os Anos)')
+    plt.title('Ocorrências de Incêndios por Mês (Soma de Todos os Anos 2021 até 2024 )')
     plt.xlabel('Mês')
     plt.ylabel('Número de Ocorrências')
     plt.xticks(range(1, 13))
