@@ -43,7 +43,7 @@ df['mes'] = df['date'].dt.month
 desmatamento = df[df['class'].str.contains('desmatamento', case=False)]
 
 
-# 9. NOVO GRÁFICO: Focos de incêndio por estado x áreas de desmatamento (barras agrupadas) - SIGLAS
+# 6. Focos de incêndio por estado x áreas de desmatamento (barras agrupadas) - SIGLAS
 focos_total_estado = df.groupby('uf_sigla')['focuses'].sum().reset_index()
 focos_desmatamento_estado = desmatamento.groupby('uf_sigla')['focuses'].sum().reset_index()
 focos_total_estado = focos_total_estado.rename(columns={'focuses':'Total de Focos'})
