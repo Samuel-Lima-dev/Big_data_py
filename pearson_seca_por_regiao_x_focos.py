@@ -124,4 +124,5 @@ for bioma in pivot_focos.columns:
     plt.ylabel(f'Total de Focos de Incêndio ({bioma})')
     plt.title(f'Região: Seca x Focos de Incêndio ({bioma})\nPearson: {coef:.2f} (p={pval:.4f})')
     plt.tight_layout()
-    plt.show()
+    plt.savefig('graficos/Região: Seca x Focos de Incêndio.png')
+    plt.close()

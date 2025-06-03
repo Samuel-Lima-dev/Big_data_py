@@ -8,6 +8,7 @@ os.makedirs("data", exist_ok=True)
 
 # Lista de arquivos: (ID do Google Drive, nome de saída)
 arquivos = [
+    
     ("1dHDGXDjHbbPe6QE6QDiuy8VwtP7XMFPP", "focos_br_todos-sats_2024.csv"),
     ("15Nik8kNDKH-hpAHk26UROH9vxTGJXhBD", "focos_br_todos-sats_2023.csv"),
     ("1U38lVunPdtpcaQ8IVFQlN7LWLhdSPETx", "focos_br_todos-sats_2022.csv"),
@@ -55,7 +56,7 @@ def variacao_percentual(anos):
     plt.ylabel('Variação Percentual (%)')
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig('Variacao_percentual_anual.pdf', format='pdf')
+    plt.savefig('graficos/Variacao_percentual_anual.png')
     plt.close()
 
 # Chamar a função

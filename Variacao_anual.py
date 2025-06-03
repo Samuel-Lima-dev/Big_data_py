@@ -53,7 +53,7 @@ def gerar_grafico_barras(ocorrencias_dict):
     for ano, qtd in ocorrencias_dict.items():
         plt.text(ano, qtd + 100, str(qtd), ha='center', va='bottom')  # rótulo nas barras
     plt.tight_layout()
-    plt.savefig('Variacao_anual.pdf', format='pdf')
+    plt.savefig('graficos/Variacao_anual.png')
     plt.close()
 
 # Executa tudo:

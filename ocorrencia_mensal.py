@@ -61,7 +61,7 @@ def ocorrencias_por_mes(anos):
     plt.xticks(range(1, 13), meses_nome, rotation=45)
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig('Ocorrencia_por_mes.pdf', format='pdf')
+    plt.savefig('graficos/Ocorrencia_por_mes.png')
     plt.close()
 
 # Executar a função

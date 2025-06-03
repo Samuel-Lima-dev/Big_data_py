@@ -54,7 +54,7 @@ def analise_de_queimadas_por_bioma(anos):
     for i, (bioma, qtd) in enumerate(contagem_bioma.items()):
         plt.text(i, qtd + 100, str(qtd), ha='center', va='bottom')
     plt.tight_layout()
-    plt.savefig('Ocorrencias_por_bioma.pdf', format='pdf')
+    plt.savefig('graficos/Ocorrencias_por_bioma.png')
     plt.close()
 
 # Executar a função

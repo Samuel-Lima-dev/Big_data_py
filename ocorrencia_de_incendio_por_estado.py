@@ -53,5 +53,5 @@ plt.xlabel('Estado')
 plt.ylabel('Número de Ocorrências')
 plt.xticks(rotation=60, ha='right')  # Rota os rótulos dos estados para melhor visualização
 plt.tight_layout()
-plt.savefig('Ocorrencias_incendio_por_estado.pdf')
+plt.savefig('graficos/Ocorrencias_incendio_por_estado.png')
 plt.close()

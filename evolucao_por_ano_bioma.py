@@ -59,7 +59,7 @@ def analise_de_queimadas_por_bioma(anos):
     plt.xticks(rotation=30)
     plt.legend(title='Ano')
     plt.tight_layout()
-    plt.savefig('evolucao_biomas_anos_2021_-_2024.pdf', format='pdf')
+    plt.savefig('graficos/evolucao_biomas_anos_2021_-_2024.png')
     plt.close()
 
 # Executar a função
