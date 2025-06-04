@@ -20,8 +20,7 @@ else:
     print(f"Baixando {filename}...")
     gdown.download(url, output, quiet=False)
 
-# === 1. Leitura dos arquivos ===
-
+# Leitura dos arquivos
 # Incêndios e desmatamento (mesmo arquivo)
 incendios = pd.read_csv("data/dashboard-fires-month-29-05-2025-19_50_13(com filtro) 2021 - 2024.csv", sep=";")
 desmatamento = pd.read_csv("data/dashboard-fires-month-29-05-2025-19_50_13(com filtro) 2021 - 2024.csv", sep=";")
@@ -38,11 +37,11 @@ for ano in range(2021, 2025):
         print(f"Aviso: Arquivo {caminho_arquivo} não encontrado.")
 clima = pd.concat(lista_df, ignore_index=True)
 
-# === 2. Limpeza de colunas ===
+#  2. Limpeza de colunas
 for df in [incendios, clima, desmatamento]:
     df.columns = df.columns.str.strip()
 
-# === 3. Datas e criação de 'ano_mes' ===
+# 3. Datas e criação de 'ano_mes'
 clima['data_pas'] = pd.to_datetime(clima['data_pas'], errors='coerce')
 clima['ano_mes'] = clima['data_pas'].dt.to_period('M').astype(str)
 
@@ -52,7 +51,7 @@ incendios['ano_mes'] = incendios['date'].dt.to_period('M').astype(str)
 desmatamento['date'] = pd.to_datetime(desmatamento['date'], errors='coerce')
 desmatamento['ano_mes'] = desmatamento['date'].dt.to_period('M').astype(str)
 
-# === 4. Agregação ===
+# 4. Agregação
 
 # Incêndios por estado e mês
 incendios_agg = incendios.groupby(['uf', 'ano_mes'])['focuses'].sum().reset_index()
@@ -75,12 +74,12 @@ desmatamento_pivot = desmatamento_agg.pivot_table(
 ).reset_index()
 desmatamento_pivot.rename(columns={'uf': 'estado'}, inplace=True)
 
-# === 5. Unir todos os dados ===
+# 5. Unir todos os dados
 df = pd.merge(incendios_agg, clima_agg, on=['estado', 'ano_mes'], how='inner')
 df = pd.merge(df, desmatamento_pivot, on=['estado', 'ano_mes'], how='left')
 df = df.dropna()  # Remove registros com valores nulos
 
-# === 6. Heatmap com variáveis selecionadas ===
+# 6. Heatmap com variáveis selecionadas
 variaveis_relevantes = [
     'focuses',
     'Fogo em áreas de desmatamento consolidado',
