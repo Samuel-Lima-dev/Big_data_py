@@ -12,6 +12,7 @@ env/
 *.7z
 *.tar.gz
 *.csv
+*.xlsx
 
 # Ignorar arquivos do VS Code
 .vscode/
