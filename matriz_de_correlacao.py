@@ -2,6 +2,23 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import gdown
+
+# Crie a pasta de saída, se ainda não existir
+os.makedirs("data", exist_ok=True)
+
+# ID do Google Drive e nome do arquivo de saída
+file_id = "1gZXQqDWEJ00Goo91KwIOvRg66Hl5SXuv"
+filename = "dashboard-fires-month-29-05-2025-19_50_13(com filtro) 2021 - 2024.csv"
+output = f"data/{filename}"
+
+# Verifica se o arquivo já existe antes de baixar
+if os.path.exists(output):
+    print(f"{filename} já existe. Pulando download.")
+else:
+    url = f"https://drive.google.com/uc?id={file_id}"
+    print(f"Baixando {filename}...")
+    gdown.download(url, output, quiet=False)
 
 # === 1. Leitura dos arquivos ===
 
